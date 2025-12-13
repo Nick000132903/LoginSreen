@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login Screen - LogicLab</title>
+</head>
+<body>
+    
+    <div id="border">
+        <div id="accessories">
+            <div id="sound">
+                <object><span><object></object></span></object>
+            </div>
+            <div id="cam">
+                <object></object>
+            </div>
+            <div id="lantern">
+                <object></object>
+            </div>
+        </div>
+        <div id="container">
+            <div id="img-profile">
+                <img src="images/imgProfile.png">   
+            </div>
+            <div id="input-username">
+                <input type="text" placeholder="Username" name="usarname" class="input" id="usarname" maxlength="100" required>
+            </div>
+            <div id="input-password">
+                <input type="password" placeholder="Password" name="psw" class="input" id="psw" minlength="8" maxlength="16" required>
+            </div>
+            <div id="container-psw">
+                <div class="checkbox">
+                    <input type="checkbox" title="Remember me" name="remember" id="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <a class="psw" href="#">Forgot password?</a>
+            </div>
+            <div id="container-btn">
+                <button id="btn-login" type="submit">Login</button>
+            </div>
+            <div id="container-register">
+                <p class="account">Not a member?</p>
+                <a class="account" href="#"><button id="btn-register" type="submit">Create account</button></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
