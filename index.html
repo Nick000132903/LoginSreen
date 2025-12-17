@@ -11,41 +11,76 @@
     <div id="border">
         <div id="accessories">
             <div id="sound">
-                <object><span><object></object></span></object>
+                <!--Sound icon-->
             </div>
             <div id="cam">
-                <object></object>
+                <!--Camera icon-->
             </div>
             <div id="lantern">
-                <object></object>
+                <!--Flashlight icon-->
             </div>
         </div>
         <div id="container">
             <div id="img-profile">
-                <img src="images/imgProfile.png">   
+                <img src="images/imgProfile.png" alt="Profile"> <!--Profile image-->
             </div>
-            <div id="input-username">
-                <input type="text" placeholder="Username" name="usarname" class="input" id="usarname" maxlength="100" required>
-            </div>
-            <div id="input-password">
-                <input type="password" placeholder="Password" name="psw" class="input" id="psw" minlength="8" maxlength="16" required>
-            </div>
-            <div id="container-psw">
-                <div class="checkbox">
-                    <input type="checkbox" title="Remember me" name="remember" id="remember">
-                    <label for="remember">Remember me</label>
+            <form action="index.html" id="form-login">
+                <div id="input-username"> <!--Username input-->
+                    <input type="text" placeholder="Username" name="usarname" class="input" id="usarname" maxlength="100" required>
                 </div>
-                <a class="psw" href="#">Forgot password?</a>
-            </div>
-            <div id="container-btn">
-                <button id="btn-login" type="submit">Login</button>
-            </div>
+                <div id="input-password"> <!--Password input-->
+                    <input type="password" placeholder="Password" name="psw" class="input" id="psw" minlength="8" maxlength="16" required>
+                </div>
+                <div id="container-psw"> <!--Organize the 'Forgot your password?' and 'Remember me' functions using a container-->
+                    <div class="checkbox">
+                        <input type="checkbox" title="Remember me" name="remember" id="remember">
+                        <label for="remember">Remember me</label> <!--Checkbox to remember password for future login-->
+                    </div>
+                    <a class="psw" href="#">Forgot password?</a> <!--Link to recover your password-->
+                </div>
+                <button id="btn-login" type="submit" onclick="loginSuccessful()">Login</button> <!--Button to complete login-->
+            </form>
             <div id="container-register">
-                <p class="account">Not a member?</p>
-                <a class="account" href="#"><button id="btn-register" type="submit">Create account</button></a>
+                <p class="account">Not a member?</p> 
+                <a class="account" href="#"><button id="btn-register">Create account</button></a> <!--Button to register-->
             </div>
         </div>
     </div>
+
+    <script>
+        function loginSuccessful(event) {
+            event.preventDefault();
+            
+            const userInput = document.getElementById('usarname');
+            const passwordInput = document.getElementById('psw');
+            const rememberCheckbox = document.getElementById('remember');
+            const user = userInput.value;
+            const password = passwordInput.value;
+            
+            if (!user.trim() || !password.trim()) {
+                alert("Please fill in all fields!"); // Checking if the fields are empty
+                return false;
+            }
+            
+            if (password.length < 8) {
+                alert("The password must be at least 8 characters long!"); // Validating the password size
+                return false;
+            }
+            
+            alert("Login successful!");
+            
+            // Clear only if "Remember me" is NOT checked
+            if (!rememberCheckbox.checked) {
+                userInput.value = '';
+                passwordInput.value = '';
+            }
+            
+            return true;
+        }
+        
+        // Add event to button
+        document.getElementById('btn-login').addEventListener('click', loginSuccessful);
+    </script>
 
 </body>
 </html>
