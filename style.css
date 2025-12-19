@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-image: linear-gradient(45deg, #114e67, #72d3e9);
-    padding: 60px 40px;
+    padding: 60px 30px;
     border-radius: 10px;
 }
 
